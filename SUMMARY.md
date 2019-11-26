@@ -35,12 +35,6 @@
   * [getTokensByContractAddress](nft-api/api-lists/gettokenbycontractaddress.md)
   * [getAllContracts](nft-api/api-lists/getallcontracts.md)
 
-## TEST
-
-* [Introduction](test/introduction.md)
-* [API Lists](test/api-lists/README.md)
-  * [getAPI](test/api-lists/getapi.md)
-
 ## FAQ
 
 * [Platform and Networks Supported by Henesis](faq/supported-blockchains.md)
