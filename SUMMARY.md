@@ -1,35 +1,43 @@
 # Table of contents
 
-* [소개](README.md)
+* [Henesis](README.md)
 
-## 시작하기 <a id="getting-started"></a>
+## Quick Start
 
-* [개발 환경 설정](getting-started/set-environment/README.md)
-  * [Node.js 및 npm 설치](getting-started/set-environment/node.js-npm.md)
-  * [Henesis CLI 설치 및 로그인](getting-started/set-environment/henesis-cli.md)
-* [플랫폼 선택](getting-started/choose-platform.md)
+* [Event Streamer](quick-start/event-streamer.md)
+* [Transaction Tracker](quick-start/transaction-tracker.md)
 
-## 이더리움 프로젝트 만들기 <a id="ethereum"></a>
+## Installation
 
-* [프로젝트 세팅](ethereum/project-setting.md)
-* [Henesis Project](ethereum/henesis-project/README.md)
-  * [크립토키티 스마트 컨트랙트](ethereum/henesis-project/cryptokitties.md)
-  * [henesis.yaml 설정](ethereum/henesis-project/henesis-yaml.md)
-  * [배포하기](ethereum/henesis-project/deployment.md)
-* [Cryptokitties Event Watcher](ethereum/event-watcher/README.md)
-  * [Cryptokitties Event Watcher 설명](ethereum/event-watcher/explanation.md)
-  * [Henesis SDK 연동하기](ethereum/event-watcher/integrate-with-sdk.md)
-  * [실행하기](ethereum/event-watcher/execution.md)
+* [Henesis CLI](installation/henesis-cli.md)
+* [Henesis SDK](installation/henesis-sdk.md)
 
-## 클레이튼 프로젝트 만들기 <a id="klaytn"></a>
+## Event Streamer
 
-* [프로젝트 세팅](klaytn/project-setting.md)
-* [Henesis Project](klaytn/henesis-project/README.md)
-  * [크립토키티 스마트 컨트랙트](klaytn/henesis-project/cryptokitties.md)
-  * [henesis.yaml 설정](klaytn/henesis-project/henesis-yaml.md)
-  * [배포하기](klaytn/henesis-project/deployment.md)
-* [Cryptokitties Event Watcher](klaytn/event-watcher/README.md)
-  * [Cryptokitties Event Watcher 설명](klaytn/event-watcher/explanation.md)
-  * [Henesis SDK 연동하기](klaytn/event-watcher/integrate-with-sdk.md)
-  * [실행하기](klaytn/event-watcher/execution.md)
+* [Introduction](event-streamer/introduction.md)
+* [Deploy Integration](event-streamer/deploy-integration.md)
+* [Subscribing to Events \(WebSocket\)](event-streamer/subscribing-events-via-websocket.md)
+* [Subscribing to Events \(Webhook\)](event-streamer/subscribing-events-via-webhook.md)
+* [\[Tutorial\] ERC20 Token Watcher](event-streamer/tutorial-erc20-tracker.md)
+
+## Transaction Tracker
+
+* [Introduction](transaction-tracker/introduction.md)
+* [Interacting with the Transaction Tracker](transaction-tracker/interacting-the-transaction-tracker.md)
+* [\[Tutorial\] Replacing Pending TXs](transaction-tracker/tutorial-tx-tracker.md)
+
+## NFT API
+
+* [Introduction](nft-api/introduction.md)
+* [API Lists](nft-api/api-lists/README.md)
+  * [getTokensByAccountAddress](nft-api/api-lists/gettokenbyaccountaddress.md)
+  * [getContract](nft-api/api-lists/getcontract.md)
+  * [getTokensByContractAddress](nft-api/api-lists/gettokenbycontractaddress.md)
+  * [getAllContracts](nft-api/api-lists/getallcontracts.md)
+
+## FAQ
+
+* [Platform and Networks Supported by Henesis](faq/supported-blockchains.md)
+* [What is example output format\(JSON\) for subscription?](faq/json-schema.md)
+* [Can the Henesis also subscribe to event data for delegatecall?](faq/can-the-henesis-also-subscribe-to-event-data-for-delegatecall.md)
 
