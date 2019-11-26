@@ -3,9 +3,7 @@
 #### Request
 
 ```bash
-curl -X GET http://api.henesis.io/nft/v1/contracts/<contractAddress>\
-/tokens\?page\=<page>\&size\=<size>\&direction\=<direction>\&
-accountAddresses\=<accountAddress1>\, <accountAddress2>
+curl -X GET http://api.henesis.io/nft/v1/contracts/<contractAddress>/tokens?page=<page>&size=<size>&order_by=<order_by>&order_direction=<order_direction>&accountAddresses=<accountAddress1>,<accountAddress2>
 ```
 
 #### Response
@@ -19,23 +17,23 @@ accountAddresses\=<accountAddress1>\, <accountAddress2>
     "totalSupply": 15712,
     "tokens": [
       {
-        "id": "40020032",
+        "tokenId": "40020032",
         "contractAddress": "0x273f7f8e6489682df756151f5525576e322d51a3",
         "owner": "0x185b257aa51fdc45176cf1ffac6a0bfb5cf28afd",
-        "uri": "https://www.mycryptoheroes.net/metadata/hero/40020032"
+        "tokenUri": "https://www.mycryptoheroes.net/metadata/hero/40020032"
       },
       ...
       {
-        "id": "40090027",
+        "tokenId": "40090027",
         "contractAddress": "0x273f7f8e6489682df756151f5525576e322d51a3",
         "owner": "0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e",
-        "uri": "https://www.mycryptoheroes.net/metadata/hero/40090027"
+        "tokenUri": "https://www.mycryptoheroes.net/metadata/hero/40090027"
       }
     ]
   },
   "pagination": {
-    "prevUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?page=0&size=15&direction=ASC&accountAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e",
-    "nextUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?page=2&size=15&direction=ASC&contractAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e        "
+    "prevUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?page=0&size=15&order_by=transfer_block_number&order_direction=desc&accountAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e",
+    "nextUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?page=2&size=15&order_by=transfer_block_number&order_direction=desc&contractAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e        "
   }
 }
 ```
@@ -46,11 +44,13 @@ accountAddresses\=<accountAddress1>\, <accountAddress2>
 
 #### Query Parameters
 
-* `page` - Integer: ERC721 토큰 리스트에서 반환될 항목의 페이지 \(0부터 시작\)
-* `size` - Integer: 한번에 조회할 ERC 721 토큰의 개수
-* `direction` - String: 토큰의 발생 시간을 기준으로한 정렬 방식 \(default: 내림차순\)
-  * `ASC`또는 `asc`: 오름차순 정렬
-  * `DES`또는 `des`: 내림차순 정렬
+* `page` - Integer: 반환되는 결과 페이지입니다.
+* `size` - Integer: 한 번의 요청으로 리턴되는 ERC721 토큰의 개수 1부터 200 사이의 정수로 지정합니다.
+* `order_by` - String: 반환 결과를 정렬 할 필드 \(default : `transfer_block_number`\)
+  * `transfer_block_number` : transfer가 발생한 블록 넘버 기준
+* `order_direction` - String: 토큰의 발생 시간을 기준으로 정렬 방식 \(default: `desc`\)
+  * `asc`: 오름차순 정렬
+  * `desc`: 내림차순 정렬
 * `accountAddresses` - List&lt;String&gt;: 필터링할 account 주소들. 이 필드를 이용하면 해당 contract의 ERC721 토큰 중 지정된 account의 ERC721 토큰들만 반환됩니다.
 
 **Returns**
