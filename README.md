@@ -1,5 +1,5 @@
 ---
-description: Subscribe blockchain data without loss in real-time(test)
+description: Subscribe blockchain data without loss in real-time
 ---
 
 # Henesis
