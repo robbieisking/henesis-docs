@@ -4,8 +4,8 @@
 
 ## Quick Start
 
-* [Event Streamer](quick-start/event-streamer.md)
-* [Transaction Tracker](quick-start/transaction-tracker.md)
+* [Event Streamerについて](quick-start/event-streamer.md)
+* [Transaction Trackerについて](quick-start/transaction-tracker.md)
 
 ## Installation
 
@@ -28,8 +28,8 @@
 
 ## NFT API
 
-* [Introduction](nft-api/introduction.md)
-* [API Lists](nft-api/api-lists/README.md)
+* [導入](nft-api/introduction.md)
+* [API 一覧](nft-api/api-lists/README.md)
   * [getTokensByAccountAddress](nft-api/api-lists/untitled.md)
   * [getContract](nft-api/api-lists/getcontract.md)
   * [getTokensByContractAddress](nft-api/api-lists/gettokensbycontractaddress.md)

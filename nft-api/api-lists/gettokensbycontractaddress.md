@@ -3,9 +3,7 @@
 #### Request
 
 ```bash
-curl -X GET http://api.henesis.io/nft/v1/contracts/<contractAddress>\
-/tokens\?offset\=<offset>\&limit\=<limit>\&\
-accountAddresses\=<accountAddress1>\, <accountAddress2>
+curl -X GET http://api.henesis.io/nft/v1/contracts/<contractAddress>/tokens?page=<page>&size=<size>&order_by=<order_by>&order_direction=<order_direction>&accountAddresses=<accountAddress1>,<accountAddress2>
 ```
 
 #### Response
@@ -34,25 +32,30 @@ accountAddresses\=<accountAddress1>\, <accountAddress2>
     ]
   },
   "pagination": {
-    "prevUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?offset=0&limit=15&accountAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e",
-    "nextUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?offset=30&limit=15&contractAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e        "
+    "prevUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?page=0&size=15&order_by=transfer_block_number&order_direction=desc&accountAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e",
+    "nextUrl": "http://api.henesis.io/nft/v1/contracts/0x273f7f8e6489682df756151f5525576e322d51a3/tokens?page=2&size=15&order_by=transfer_block_number&order_direction=desc&contractAddresses=0x138a35ee20e40f019e7e7c00386ab2ef42d66d1e        "
   }
 }
 ```
 
 #### Path Parameters
 
-* `contractAddress` - String: ERC721トークンを照会したいcontractアドレス
+* `contractAddress` - String: ERC721トークンを検索したいcontractのアドレス
 
 #### Query Parameters
 
-* `offset` - Integer: ERC721トークンリストから返される最初の項目のオフセット（0から始まる）
-* `limit` - Integer: 一度再生するERC 721トークンの数
-* `accountAddresses` - List&lt;String&gt;: フィルタリングするaccountアドレスたち。このフィールドを使用すると、そのcontractのERC721トークンの指定されたaccountのERC721トークンだけ返されます。
+* `page` - Integer: 返される結果のページです
+* `size` - Integer: 一回のリクエストで戻されるERC721トークンの数、1から200の間の整数で指定します。
+* `order_by` - String: 戻り値の結果の並べ替えフィールド \(default: `transfer_block_number` \)
+  * `transfer_block_number` : 転送が発生したブロック番号の基準
+* `order_direction` - String:  並べ替えの方向 \(default: `desc`\)
+  * `asc`: 昇順で並べ替え
+  * `desc`: 降順の並べ替え
+* `accountAddresses` - List&lt;String&gt;: フィルタリングするcontractアドレスたち。このフィールドを使用することで、アカウントが所有しているトークンのうち、指定されたcontractのERC721トークンだけが返されます。
 
 **Returns**
 
-**`data` : `getTokensByContractAddress` APIの応答データ**
+**`data` : `getTokensByContractAddress` APIのレスポンスデータ**
 
 * `address`: ERC721コントラクトのアドレス
 * `name`: ERC721コントラクトの名前

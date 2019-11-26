@@ -1,4 +1,4 @@
-# API Lists
+# API 一覧
 
 Henesis NFT APIは以下のようなAPIをサポートします。
 

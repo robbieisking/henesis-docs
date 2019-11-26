@@ -1,4 +1,4 @@
-# Transaction Tracker
+# Transaction Trackerについて
 
 ## Step 1: Henesis CLIをインストールする
 
@@ -14,9 +14,9 @@ npm install -g @haechi-labs/henesis-cli
 henesis login
 ```
 
-## Step 2：サンプルコードを取得
+## Step 2：Sample Repositoryのクローン
 
-Sample Repositoryを使用してTransaction Trackerがどのようにブロックチェーンのトランザクションの状態の変化を購読することができるかどうかについて説明します。
+Sample Repositoryの中にあるTransaction Trackerを用いて、ブロックチェーンのトランザクションの状態の変化をどのように取得することができるか説明していきます。
 
 ### Sample Repositoryインポート
 
@@ -30,21 +30,21 @@ git clone https://github.com/HAECHI-LABS/sample-tx-tracker
 cd sample-tx-tracker
 ```
 
-### Dependencyインストール
+### 依存関係にあるツールのインストール
 
 ```
 npm install
 ```
 
-## Step 3：トランザクションの状態の変化を購読設定する
+## Step 3：トランザクションの状態変化の取得に関する設定を行う
 
-### ClientId、Private Keyとノードを設定する
+### ClientId、Private Keyとノードの設定
 
-Henesisを通じてトランザクションの状態の変化を購読するには、次のような情報が必要です。
+Henesisを使ってトランザクションの状態変化を取得するには、以下の情報が必要になります。
 
-* `CLIENT_ID` : `henesis account：describeで`確認することができます。
-* `PRIVATE_KEY` : テストのために使用財布のプライベートキーです。**十分な量のイーサネットリウムがあるEOAアドレスのプライベートキーを入力します。** （[プライベートキーを確認する方法](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key)）
-* `NODE_ENDPOINT` : 接続ブロックチェーンのノードendpointです。 （[INFURAキーを確認する方法](https://infura.io/docs/gettingStarted/authentication)）
+* `CLIENT_ID` : あなたのクライアントIDです。`henesis account：describeで`確認することができます。
+* `PRIVATE_KEY` : テストのために使用するEOAアカウントのプライベートキーです。**十分な量のイーサネットリウムがあるEOAアドレスのプライベートキーを入力します。** （[プライベートキーを確認する方法](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key)）
+* `NODE_ENDPOINT` : 接続したいブロックチェーンのノードのURLです。 （[INFURAキーを確認する方法](https://infura.io/docs/gettingStarted/authentication)）
 
 ClientIdは以下のようなCLIコマンドを使用して確認することができます。
 
@@ -59,7 +59,7 @@ Organization: haechi-labs
 ClientId: a481485a958f1b82ac210ec4eea27943
 ```
 
-設定ファイルである`.env`にClientIdとPrivate KeyとNode Endpointを記入します。
+設定ファイルである`.env`にClientId、Private Key、Node Endpointを書き込みます。
 
 ```javascript
 CLIENT_ID=<your-client-id>
@@ -67,9 +67,9 @@ PRIVATE_KEY=<your private key>
 NODE_ENDPOINT='https://ropsten.infura.io/v3/<your-key>'
 ```
 
-### TransactionTracker生成する
+### TransactionTrackerのインスタンスを生成する
 
-`CLIENT_ID`を利用して、トランザクションの状態の変化を購読するためのTransactionTrackerインスタンスを生成することができます。
+`CLIENT_ID`を利用することで、トランザクションの状態変化を取得するためのTransactionTrackerインスタンスを生成することができます。
 
 ```javascript
 const { TransactionTracker } = require('@haechi-labs/henesis-sdk-js');
@@ -85,12 +85,12 @@ const tracker = new TransactionTracker(CLIENT_ID, {
 サポートしているブロックのチェーン一覧はこちらをご覧ください。
 {% endhint %}
 
-### トランザクションの状態の変化を購読する
+### トランザクションの状態変化を購読する
 
-`subscription`を利用して追跡したトランザクションの状態を購読することができます。
+`subscription`を利用して追跡中のトランザクションの状態を取得することができます。
 
-* `message.data.type`で追跡したトランザクションの状態を知ることができます。
-* `message.ack（）`を最後に必ず呼び出さなければします。
+* `message.data.type`で追跡中のトランザクションの状態を知ることができます。
+* `message.ack（）`を最後に必ず呼び出す必要があります。
 
 ```javascript
 const subscription = await tracker.subscribe(
@@ -124,13 +124,13 @@ subscription.on("error", async (error) => {
 });
 ```
 
-### トランザクションの状態の変化を追跡する
+### トランザクションの状態変化を追跡する
 
 `trackTransaction`関数を利用して、トランザクションを追跡します。
 
 * 状態の変化を追跡したいトランザクションの`txHash`を設定します。
 * `txHash`を`trackTransaction`に入れ追跡を開始します。
-* `timeout` 30秒、そして`confirmation`は6に設定します。
+* `timeout` を30秒、`confirmation`を6に設定します。
 
 ```javascript
 // Start tracking transaction
@@ -141,15 +141,15 @@ tracker.trackTransaction(txHash, {
 });
 ```
 
-## Step 4: トランザクションの状態の変化を確認する
+## Step 4: トランザクションの状態変化を確認する
 
-APIサーバーを実行して、トランザクションの状態の変化を確認します。
+APIサーバーを実行し、トランザクションの状態変化を確認します。
 
 ```bash
 $ node index
 ```
 
-トランザクションの状態が変化してメッセージが配信されると、次のような情報を確認することができます。
+トランザクションの状態が変化してメッセージが配信されると、コンソールで以下ような情報を確認することができます。
 
 ```javascript
 now transaction status is: receipt

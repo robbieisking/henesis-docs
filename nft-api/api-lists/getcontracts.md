@@ -28,7 +28,7 @@ curl -X GET http://api.henesis.io/nft/v1/contracts/
 
 **Returns**
 
-このAPIは、トークンの配列を返し、各トークンは、次のようなフィールドを持っています：
+このAPIはトークンの配列を返します。そして、各トークンは以下のようなフィールドを持っています：
 
 * `address`: ERC721コントラクトのアドレス
 * `name`:  ERC721コントラクトの名前

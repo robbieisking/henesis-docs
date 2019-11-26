@@ -1,4 +1,4 @@
-# Event Streamer
+# Event Streamerについて
 
 ## Step 1：Henesis CLIをインストールする
 
@@ -14,11 +14,11 @@ npm install -g @haechi-labs/henesis-cli
 henesis login
 ```
 
-## Step 2：サンプルコードを取得
+## Step 2：サンプルコードを取得する
 
 Sample Repositoryを使用してHenesisがどのようにブロックチェーンのデータを失わずに購読することができるかどうかについて説明します。
 
-### Sample Repositoryインポート
+### Sample Repositoryのインポート
 
 ```
 git clone https://github.com/HAECHI-LABS/sample-erc20-watcher
@@ -30,15 +30,15 @@ git clone https://github.com/HAECHI-LABS/sample-erc20-watcher
 cd sample-erc20-watcher
 ```
 
-### Dependencyインストール
+### 依存関係にあるツールのインストール
 
 ```
 npm install
 ```
 
-## Step 3：ブロックチェーンデータのフィルタを登録する
+## Step 3：ブロックチェーンデータフィルタを登録する
 
-Henesisを利用してブロックチェーンのデータを失わずに購読するためには、いくつかのコントラクトのイベントを聞くか、フィルタに記録する過程が必要です。フィルタ登録は`henesis.yaml`を介して行うことができ、サンプルコードでは、イーサネットリウムメインネットに配布されている[Tether Token contract](https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7)のイベントをサブスクライブすることを介してHenesis使い方を説明します。
+Henesisを利用してブロックチェーンのデータをもれなく取得するためには、どのコントラクトのイベントがリッスンされそうかをフィルタに記録する過程が必要です。フィルタの登録は`henesis.yaml`を介して行うことができ、サンプルコードでは、イーサネットリウムメインネットに配布されている[Tether Token contract](https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7)のイベントを取得する流れを使ってHenesisの使い方を説明します。
 
 {% tabs %}
 {% tab title="henesis.yaml" %}
@@ -68,15 +68,15 @@ provider:
 {% endtab %}
 {% endtabs %}
 
-## Step 4：Integration配布する
+## Step 4：Integrationをデプロイする
 
-CLIのコマンドを使用して[integration](https://docs.henesis.io/v/ko/subscribing-events/deploy-integration#integration)を配布することができます。
+CLIのコマンドで[integration](https://docs.henesis.io/v/ko/subscribing-events/deploy-integration#integration)をデプロイすることができます。
 
 ```bash
 henesis integration:deploy
 ```
 
-正常にintegrationが配布された場合は、次のような内容が表示されます。
+正常にintegrationがデプロイできた場合、以下のように表示されます。
 
 ```text
 Deploying... !
@@ -84,7 +84,7 @@ tether-tutorial-jrweu has been deployed
 Deploying... done
 ```
 
-CLIのコマンドを使用してintegrationの状態を確認することができ、`State`が`Available`と表示されている場合、通常integrationが展開されています。
+CLIのコマンドでintegrationの状態を確認することができ、`State`が`Available`と表示されている場合、通常はintegrationが展開されています。
 
 ```bash
 henesis integration:status
@@ -99,10 +99,10 @@ tether-tutorial-jrweu  tether-tutorial  ethereum  mainnet  v1       webSocket  A
 
 ### ClientIdとIntegrationId確認と設定する
 
-HenesisでEventデータをサブスクライブするには、次のような情報が必要です。
+HenesisでEventデータを取得するには、次のような情報が必要です。
 
-* `CLIENT_ID`：`henesis account：describe`で確認することができます。 
-* `INTEGRATION_ID`：`henesis integration：status`で確認することができます。
+* `CLIENT_ID`：`henesis account：describe`コマンドで確認することができます。 
+* `INTEGRATION_ID`：`henesis integration：status`コマンドで確認することができます。
 
 ClientIdは以下のようなCLIコマンドを使用して確認することができます。
 
@@ -128,9 +128,7 @@ Id                     Name             Platform  Network  Version  Provider   S
 tether-tutorial-jrweu  tether-tutorial  ethereum  mainnet  v1       webSocket  Available
 ```
 
- Enter the ClientId and IntegrationId in the `.env` configuration file.
-
-設定ファイルである`.env`にCLIコマンドを使用して確認したClientIdとIntegrationIdを記入します。
+設定ファイルである`.env`にCLIコマンドを使用して、先ほど確認したClientIdとIntegrationIdを記入します。
 
 {% tabs %}
 {% tab title=".env" %}
@@ -143,7 +141,7 @@ INTEGRATION_ID=<your integration id>
 
 ### サンプルコードをビルドして実行する
 
-npmを介してソースコードをビルドします。
+npmコマンドでソースコードをビルドします。
 
 ```bash
 $ npm run build:standalone
@@ -155,11 +153,11 @@ APIサーバーを実行します。
 $ node index
 ```
 
-ブラウザで[http://locahost:3000](http://locahost:3000)を接続してEventデータをよく購読していることを確認します。
+ブラウザで[http://locahost:3000](http://locahost:3000)にアクセスし、Eventデータを正しく取得できていることを確認します。
 
 ![](../.gitbook/assets/2019-10-16-11.09.49.png)
 
 {% hint style="info" %}
-購読するブロックチェーンデータのraw dataは、[そのリンク](https://docs.henesis.io/v/ko/faq/json-schema)を参照してください。
+取得するブロックチェーンデータの生データについては[こちらのリンク](https://docs.henesis.io/v/ko/faq/json-schema)を参照してください。
 {% endhint %}
 
