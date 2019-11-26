@@ -38,8 +38,8 @@
 ## TEST
 
 * [Introduction](test/introduction.md)
-* [API Lists](test/api\ lists/README.md)
-  * [getAPI](test/api\ lists/getapi.md)
+* [API Lists](test/api-lists/README.md)
+  * [getAPI](test/api-lists/getapi.md)
 
 ## FAQ
 
