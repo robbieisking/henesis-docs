@@ -41,8 +41,9 @@ To subscribe the blockchain data without losing data using Henesis, it is necess
 {% tabs %}
 {% tab title="henesis.yaml" %}
 ```yaml
-version: v1
 name: tether-tutorial
+version: v1    # (TBD) The version of this yaml file.
+apiVersion: v1 # (TBD) The version of Henesis api. The type of message you receive can be changed depending on this version.
 
 blockchain:
   platform: ethereum

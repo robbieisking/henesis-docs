@@ -1,31 +1,20 @@
----
-description: Subscribe blockchain data without loss in real-time
----
-
 # Henesis
 
-Have you ever faced any problems which are listed below while developing DApps\(Decentralized Applications\)?‌
+### Event Streamer
 
-* I'm not sure that I have subscribed all data from blockchain without loss. 
-* It's difficult to check whether transactions are mined or not.
-* It's hard to sync with blockchain because of frequent disconnections from the node.
+{% page-ref page="event-streamer/introduction.md" %}
 
-Henesis provides following features to address above mentioned problems.‌
+### Transaction Tracker
 
-* Listen, filter, parse and deliver blockchain data without loss in real-time
-* Reorganization Tolerance.
-* Fully-managed stable blockchain node.
+{% page-ref page="transaction-tracker/introduction.md" %}
 
-Without Henesis, you have to‌
+### Trusted Node
 
-* Manage a stable blockchain node by yourself.
-* Write your own code for subscribing to blockchain events.
-* Manually deal with a chain reorganization.
-* Inspect a transaction pool or a latest block for tracking transactions.
+{% page-ref page="trusted-node/ethereum-api-lists/" %}
 
-Sounds terrible, doesn't it?‌
+### NFT API
 
-From now on, Henesis will take care of everything instead of you.
+{% page-ref page="nft-api/introduction.md" %}
 
 {% hint style="info" %}
 Have you requested us to issue an account to use Henesis? If you haven't yet, please contact [hello@henesis.io](mailto:hello@henesis.io).

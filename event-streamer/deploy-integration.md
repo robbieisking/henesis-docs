@@ -59,8 +59,9 @@ sample/
 {% tabs %}
 {% tab title="henesis.yaml" %}
 ```yaml
-version: v1
 name: sample
+version: v1    # (TBD) The version of this yaml file.
+apiVersion: v1 # (TBD) The version of Henesis api. The type of message you receive can be changed depending on this version.
 
 blockchain:
   platform: ethereum
@@ -93,12 +94,13 @@ Here, you can specify following information.
 
 ### Basic Information
 
-* `version` :  a version of integration.
 * `name` :  a name of integration. Cannot be duplicated.
+* `version` :  a version of integration.
+* `apiVersion` :  a version of Henesis API. The type of message you receive can be changed depending on this version.
 
 ### Blockchain
 
-Define which platform and network you would like to subscribe to. Platform we support can be found in the [FAQ](../faq/supported-blockchains.md).
+Define which platform and network you would like to subscribe to. Platform we support can be found in the [FAQ](faq/supported-blockchains.md).
 
 * `platform`: A platform of blockchain\(e.g. ethereum, klaytn\).
 * `network`: A network of blockchain\(e.g. mainnet, ropsten\).
