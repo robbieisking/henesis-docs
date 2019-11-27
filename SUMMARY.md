@@ -30,7 +30,7 @@
 
 * [導入](nft-api/introduction.md)
 * [API 一覧](nft-api/api-lists/README.md)
-  * [getTokensByAccountAddress](nft-api/api-lists/untitled.md)
+  * [getTokensByAccountAddress](nft-api/api-lists/gettokensbyaccountaddress.md)
   * [getContract](nft-api/api-lists/getcontract.md)
   * [getTokensByContractAddress](nft-api/api-lists/gettokensbycontractaddress.md)
   * [getAllContracts](nft-api/api-lists/getcontracts.md)
