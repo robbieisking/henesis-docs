@@ -63,8 +63,9 @@ sample/
 {% tabs %}
 {% tab title="henesis.yaml" %}
 ```yaml
-version: v1
 name: sample
+version: v1    # (TBD) The version of this yaml file.
+apiVersion: v1 # (TBD) The version of Henesis api. The type of message you receive can be changed depending on this version.
 
 blockchain:
   platform: ethereum
@@ -99,12 +100,13 @@ provider:
 
 Integration의 기본 정보들을 입력합니다. 
 
-* `version` :  Integration의 버전 
 * `name` : Integration의 이름 \(이름은 중복될 수 없습니다.\) 
+* `version` :  Integration의 버전 
+* `apiVersion` :  Henesis API의 버전. 이 버전에 따라 response로 전달되는 데이터의 타입이 달라질 수 있습니다. 
 
 ### Blockchain
 
-어떤 블록체인 네트워크로부터 데이터를 가져올지 입력합니다. Henesis가 지원하는 블록체인 목록은 [FAQ](../faq/supported-blockchains.md)에서 확인할 수 있습니다.
+어떤 블록체인 네트워크로부터 데이터를 가져올지 입력합니다. Henesis가 지원하는 블록체인 목록은 [FAQ](faq/supported-blockchains.md)에서 확인할 수 있습니다.
 
 * `platform`: 블록체인 플랫폼. 
 * `network`: 블록체인 네트워크, 메인넷 또는 테스트넷을 설정할 수 있습니다. 
